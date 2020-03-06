@@ -18,6 +18,7 @@ namespace SpeechWPMCalculator
                 if (result.Reason == ResultReason.RecognizedSpeech)
                 {
                     //List<string> wordsList = new List<string>();
+                    //To Do, test and implement the continuous speech to text.
                     Console.WriteLine($"We recognized: {result.Text}");
 
 
