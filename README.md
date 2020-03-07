@@ -18,3 +18,8 @@ being interviewed. The analyser will give you a real time reading of your words 
 
 Depending on the type of situation you're in, different levels of WPM is suited for each situation.
 
+Progression update:  
+
+Currently testing out the functionalities of the Speech API, and experiementing with possible ways to implement the realtime counting solution.  
+
+I tried to split the result text into a string array with space, comma and period delimiters. Hello,  it's me. yielded a count of 5.  
