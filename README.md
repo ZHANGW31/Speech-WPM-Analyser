@@ -9,7 +9,7 @@ The goal for this app is to be able to listen and provide a real-time feedback o
 
 Once the speech is complete, the app will provide a graphical representation of the overall wpm throughout the recording.
 
-Use case:
+**Use case:
 
 For those that are requires practice when giving speeches, elevator pitches, being interviewed and more...
 
@@ -18,8 +18,8 @@ being interviewed. The analyser will give you a real time reading of your words 
 
 Depending on the type of situation you're in, different levels of WPM is suited for each situation.
 
-Progression update:  
+**Progression update:  
 
-Currently testing out the functionalities of the Speech API, and experiementing with possible ways to implement the realtime counting solution.  
+Currently testing out the functionalities of the Speech API, and experimenting with possible ways to implement the realtime counting solution.  
 
 I tried to split the result text into a string array with space, comma and period delimiters. Hello,  it's me. yielded a count of 5.  
