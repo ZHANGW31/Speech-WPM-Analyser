@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.CognitiveServices.Speech;
+using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Microsoft.CognitiveServices.Speech;
-using System.Collections.Generic;
 
 
 namespace SpeechWPMCalculator
@@ -17,19 +17,14 @@ namespace SpeechWPMCalculator
 
                 if (result.Reason == ResultReason.RecognizedSpeech)
                 {
-                    //List<string> wordsList = new List<string>();
+                    
                     //To Do, test and implement the continuous speech to text.
                     Console.WriteLine($"We recognized: {result.Text}");
                     var wordCounter = result.Text;
-                    char[] delimiterChars = { ' ', ',', '.' };
-                    string[] words = wordCounter.Split(delimiterChars);//testing splitting the words into an array, and counting each element. 
-                    //current doesn't work as intended, as the spaces were split causing additional elements to appear.
-                    //To do, need to fix this for further testing.
-                    foreach (var item in words)
-                    {
-                        Console.WriteLine(item);
-                    }
-                    Console.WriteLine(words.Length);
+                    //Using Regex, removing all punctuations from the result string, spliting it into wordArray
+                    wordCounter = Regex.Replace(wordCounter, @"[^\w\d\s]", "");
+                    string[] wordArray = wordCounter.Split();
+                    Console.WriteLine("The count of words is " + wordArray.Length);
 
                 }
                 else if (result.Reason == ResultReason.NoMatch)
@@ -53,6 +48,7 @@ namespace SpeechWPMCalculator
         }
         static void Main()
         {
+            Console.WriteLine("Please start speaking, I am listening...");
             RecognizeSpeechAsync().Wait();
             Console.WriteLine("Please press <Return> to continue");
             Console.ReadLine();
