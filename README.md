@@ -22,4 +22,4 @@ Depending on the type of situation you're in, different levels of WPM is suited 
 
 Currently testing out the functionalities of the Speech API, and experimenting with possible ways to implement the realtime counting solution.  
 
-I tried to split the result text into a string array with space, comma and period delimiters. Hello,  it's me. yielded a count of 5.  
+Utilizing Regex to remove punctuations and then spliting the string into a string array yields intended test results. 
