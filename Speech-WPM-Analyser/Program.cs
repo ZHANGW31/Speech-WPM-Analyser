@@ -8,8 +8,25 @@ namespace SpeechWPMCalculator
 {
     class Program
     {
-        public static async Task RecognizeSpeechAsync()
+        public static async Task RecognizeSpeechAsync() //To do: continuous recognition
         {
+            //// Subscribe to event
+            //recognizer.Recognized += (s, e) =>
+            //{
+            //    if (e.Result.Reason == ResultReason.RecognizedSpeech)
+            //    {
+            //        // Do something with the recognized text
+            //        // e.Result.Text
+            //    }
+            //};
+
+            //// Start continuous speech recognition
+            //await recognizer.StartContinuousRecognitionAsync();
+
+            //// Stop continuous speech recognition
+            //await recognizer.StopContinuousRecognitionAsync();
+
+
             var config = SpeechConfig.FromSubscription("", "westus");
             using (var recognizer = new SpeechRecognizer(config))
             {
@@ -17,7 +34,7 @@ namespace SpeechWPMCalculator
 
                 if (result.Reason == ResultReason.RecognizedSpeech)
                 {
-                    
+
                     //To Do, test and implement the continuous speech to text.
                     Console.WriteLine($"We recognized: {result.Text}");
                     var wordCounter = result.Text;
@@ -46,14 +63,13 @@ namespace SpeechWPMCalculator
 
             }
         }
+
         static void Main()
         {
             Console.WriteLine("Please start speaking, I am listening...");
             RecognizeSpeechAsync().Wait();
             Console.WriteLine("Please press <Return> to continue");
             Console.ReadLine();
-
-
         }
     }
 }
